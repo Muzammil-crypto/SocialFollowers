@@ -16,7 +16,7 @@ export default StyleSheet.create({
     borderColor: theme.colors.primary,
     // backgroundColor: theme.colors.secondary,
     width: "85%",
-    height: "55%",
+    height: "60%",
     alignItems: "center",
     justifyContent: "center",
   },

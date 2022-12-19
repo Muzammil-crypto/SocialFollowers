@@ -21,7 +21,19 @@ export default function NavigationItems() {
           headerLeft: () => null,
         })}
       />
-      <Stack.Screen name="RegisterScreen" component={RegisterScreen} />
+      <Stack.Screen
+        name="RegisterScreen"
+        component={RegisterScreen}
+        options={() => ({
+          title: "Social Followers",
+          headerStyle: {
+            backgroundColor: theme.colors.primary,
+          },
+          headerTintColor: "white",
+          headerTitleAlign: "center",
+          headerLeft: () => null,
+        })}
+      />
     </Stack.Navigator>
   );
 }
