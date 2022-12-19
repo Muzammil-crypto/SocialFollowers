@@ -1,20 +1,31 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { useState, useEffect } from "react";
+import { EventRegister } from "react-native-event-listeners";
+import themeContext from "./src/utils/themeContext";
+import {
+  NavigationContainer,
+  DarkTheme,
+  DefaultTheme,
+} from "@react-navigation/native";
+import { theme } from "./src/utils/theme";
+import NavigationItems from "./src/navigation/Navigations";
 
 export default function App() {
+  const [mode, setMode] = useState(false);
+  useEffect(() => {
+    let eventListner = EventRegister.addEventListener("changeTheme", (data) => {
+      setMode(data);
+    });
+    return () => {
+      EventRegister.removeAllListeners(eventListner);
+    };
+  });
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <themeContext.Provider
+      value={mode === true ? theme.darkTheme : theme.colors}
+    >
+      <NavigationContainer theme={mode === true ? DarkTheme : DefaultTheme}>
+        <NavigationItems />
+      </NavigationContainer>
+    </themeContext.Provider>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
