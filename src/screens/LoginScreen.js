@@ -14,6 +14,7 @@ import { StatusBar } from "expo-status-bar";
 import Background from "../components/Background";
 import Header from "../components/Header";
 import BackButton from "../components/BackButton";
+import GalleryImagecomp from "../components/GalleryImage";
 const LoginScreen = ({ navigation }) => {
   const onSubmit = () => {
     console.log("object");
@@ -27,6 +28,7 @@ const LoginScreen = ({ navigation }) => {
           <BackButton />
 
           <StatusBar />
+          <GalleryImagecomp address={require("../assets/images/mg.png")} />
           <Header>Login with your Email</Header>
           <Formik
             validationSchema={loginValidationSchema}

@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
   background: {
     flex: 1,
     width: "100%",
-    backgroundColor: theme.colors.surface,
+    backgroundColor: theme.colors.backgroundColor,
   },
   container: {
     height: theme.dimensions.windowHeight * 1.05,

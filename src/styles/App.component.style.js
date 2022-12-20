@@ -3,8 +3,6 @@ import { theme } from "../utils/theme";
 
 export default StyleSheet.create({
   container: {
-    // marginTop: 100,
-
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
@@ -30,7 +28,7 @@ export default StyleSheet.create({
     margin: 10,
     backgroundColor: theme.colors.backgroundColor,
     borderColor: theme.colors.text,
-    borderWidth: StyleSheet.hairlineWidth * 1.5,
+    borderWidth: StyleSheet.hairlineWidth,
     borderRadius: 22,
   },
   clickAbleText: {

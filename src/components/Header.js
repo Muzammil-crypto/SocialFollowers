@@ -10,8 +10,8 @@ export default function Header(props) {
 const styles = StyleSheet.create({
   header: {
     marginLeft: theme.dimensions.windowWidth * 0.035,
+    marginVertical: -theme.dimensions.windowHeight * 0.005,
     alignSelf: "flex-start",
-    // textAlign: "left",
     fontSize: 20,
     color: theme.colors.text,
     fontWeight: "bold",
