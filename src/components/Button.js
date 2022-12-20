@@ -29,6 +29,7 @@ export default function Button({ mode, style, ...props }) {
 
 const styles = StyleSheet.create({
   button: {
+    borderWidth: StyleSheet.hairlineWidth,
     backgroundColor: theme.colors.primary,
     borderRadius: 22,
     borderColor: "#2FBAE3",

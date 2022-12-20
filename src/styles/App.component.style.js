@@ -32,11 +32,11 @@ export default StyleSheet.create({
     borderRadius: 22,
   },
   clickAbleText: {
-    marginTop: theme.dimensions.windowHeight * 0.02,
+    marginTop: theme.dimensions.windowHeight * 0.005,
     fontSize: 10,
     color: theme.colors.primary,
-    marginLeft: theme.dimensions.windowWidth * 0.15,
-    marginRight: theme.dimensions.windowWidth * 0.15,
+    // marginRight: theme.dimensions.windowWidth * 0.15,
+    marginLeft: 5,
     fontStyle: "italic",
   },
   button: {

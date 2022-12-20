@@ -1,4 +1,4 @@
-import { TouchableOpacity, View } from "react-native";
+import { TouchableOpacity, View, Text } from "react-native";
 import React from "react";
 import { Formik } from "formik";
 import Button from "../components/Button";
@@ -15,6 +15,9 @@ import Background from "../components/Background";
 import Header from "../components/Header";
 import BackButton from "../components/BackButton";
 import GalleryImagecomp from "../components/GalleryImage";
+import Seperator from "../components/Seperator";
+import ThirdPartyButton from "../components/ThirdPartyButton";
+import { Paragraph } from "react-native-paper";
 const LoginScreen = ({ navigation }) => {
   const onSubmit = () => {
     console.log("object");
@@ -26,7 +29,6 @@ const LoginScreen = ({ navigation }) => {
       <ScrollView>
         <Background>
           <BackButton />
-
           <StatusBar />
           <GalleryImagecomp address={require("../assets/images/mg.png")} />
           <Header>Login with your Email</Header>
@@ -66,12 +68,7 @@ const LoginScreen = ({ navigation }) => {
                 />
                 {errors.password && <ErrorMsg value={errors.password} />}
                 <View style={{ flexDirection: "row" }}>
-                  <TouchableOpacity>
-                    <ClickAbleText linkText="Forgot Password?" />
-                  </TouchableOpacity>
-                  <TouchableOpacity>
-                    <ClickAbleText linkText="Don't have an account?" />
-                  </TouchableOpacity>
+                  <ClickAbleText linkText="Forgot Password?" />
                 </View>
                 <Button onPress={handleSubmit} mode={"contained"}>
                   Submit
@@ -79,6 +76,13 @@ const LoginScreen = ({ navigation }) => {
               </>
             )}
           </Formik>
+          <Seperator />
+          <ThirdPartyButton title={"Login with Google    "} icon={"google"} />
+          <ThirdPartyButton title={"Login with Facebook"} icon={"facebook"} />
+          <View style={{ marginTop: 40, flexDirection: "row" }}>
+            <Paragraph>Don't have an account?</Paragraph>
+            <ClickAbleText linkText={"Click here"} />
+          </View>
         </Background>
       </ScrollView>
     </>
