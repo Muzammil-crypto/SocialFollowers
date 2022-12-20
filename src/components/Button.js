@@ -29,12 +29,12 @@ export default function Button({ mode, style, ...props }) {
 
 const styles = StyleSheet.create({
   button: {
-    backgroundColor: theme.colors.secondary,
-    borderRadius: 12,
+    backgroundColor: theme.colors.primary,
+    borderRadius: 22,
     borderColor: "#2FBAE3",
-    width: "80%",
+    width: theme.dimensions.windowWidth * 0.85,
     marginVertical: 30,
-    height: 50,
+    height: 45,
   },
   text: {
     fontWeight: "bold",

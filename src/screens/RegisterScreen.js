@@ -13,7 +13,12 @@ const RegisterScreen = ({ navigation }) => {
   const onSubmit = () => {
     console.log("object");
 
-    navigation.navigate("RegisterScreen");
+    navigation.navigate("LoginScreen");
+  };
+  const goToScreen = () => {
+    //  console.log("object");
+
+    navigation.navigate("LoginScreen");
   };
   return (
     <>
@@ -87,13 +92,11 @@ const RegisterScreen = ({ navigation }) => {
                   {errors.password && <ErrorMsg value={errors.password} />}
 
                   <View style={{ flexDirection: "row" }}>
-                    <TouchableOpacity>
+                    <TouchableOpacity onPress={goToScreen}>
                       <ClickAbleText linkText="Already have an account?" />
                     </TouchableOpacity>
                   </View>
-                  <Button onPress={handleSubmit} mode={"outlined"}>
-                    Submit
-                  </Button>
+                  <Button mode={"outlined"}>Submit</Button>
                 </>
               )}
             </Formik>

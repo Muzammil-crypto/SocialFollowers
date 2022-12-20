@@ -9,6 +9,11 @@ import ErrorMsg from "../components/ErrorMsg";
 import ClickAbleText from "../components/ClickAbleText";
 import loginValidationSchema from "../formik/schemas/formikSchema";
 import { ScrollView } from "react-native-gesture-handler";
+import { theme } from "../utils/theme";
+import { StatusBar } from "expo-status-bar";
+import Background from "../components/Background";
+import Header from "../components/Header";
+import BackButton from "../components/BackButton";
 const LoginScreen = ({ navigation }) => {
   const onSubmit = () => {
     console.log("object");
@@ -18,59 +23,61 @@ const LoginScreen = ({ navigation }) => {
   return (
     <>
       <ScrollView>
-        <View style={styles.container}>
-          <View style={styles.loginContainer}>
-            <Formik
-              validationSchema={loginValidationSchema}
-              initialValues={{ email: "", password: "" }}
-              onSubmit={onSubmit}
-            >
-              {({
-                handleChange,
-                handleBlur,
-                values,
-                errors,
+        <Background>
+          <BackButton />
 
-                handleSubmit,
-              }) => (
-                <>
-                  <InputText
-                    name="email"
-                    placeholder="Email Address"
-                    style={styles.textInputs}
-                    onChangeText={handleChange("email")}
-                    onBlur={handleBlur("email")}
-                    value={values.email}
-                    keyboardType="email-address"
-                  />
+          <StatusBar />
+          <Header>Login with your Email</Header>
+          <Formik
+            validationSchema={loginValidationSchema}
+            initialValues={{ email: "", password: "" }}
+            onSubmit={onSubmit}
+          >
+            {({
+              handleChange,
+              handleBlur,
+              values,
+              errors,
 
-                  {errors.email && <ErrorMsg value={errors.email} />}
-                  <InputText
-                    name="password"
-                    placeholder="Password"
-                    style={styles.textInputs}
-                    onChangeText={handleChange("password")}
-                    onBlur={handleBlur("password")}
-                    value={values.password}
-                    secureTextEntry
-                  />
-                  {errors.password && <ErrorMsg value={errors.password} />}
-                  <View style={{ flexDirection: "row" }}>
-                    <TouchableOpacity>
-                      <ClickAbleText linkText="Forgot Password?" />
-                    </TouchableOpacity>
-                    <TouchableOpacity>
-                      <ClickAbleText linkText="Don't have an account?" />
-                    </TouchableOpacity>
-                  </View>
-                  <Button onPress={handleSubmit} mode={"outlined"}>
-                    Submit
-                  </Button>
-                </>
-              )}
-            </Formik>
-          </View>
-        </View>
+              handleSubmit,
+            }) => (
+              <>
+                <InputText
+                  name="email"
+                  placeholder="Email Address"
+                  style={styles.textInputs}
+                  onChangeText={handleChange("email")}
+                  onBlur={handleBlur("email")}
+                  value={values.email}
+                  keyboardType="email-address"
+                />
+
+                {errors.email && <ErrorMsg value={errors.email} />}
+                <InputText
+                  name="password"
+                  placeholder="Password"
+                  style={styles.textInputs}
+                  onChangeText={handleChange("password")}
+                  onBlur={handleBlur("password")}
+                  value={values.password}
+                  secureTextEntry
+                />
+                {errors.password && <ErrorMsg value={errors.password} />}
+                <View style={{ flexDirection: "row" }}>
+                  <TouchableOpacity>
+                    <ClickAbleText linkText="Forgot Password?" />
+                  </TouchableOpacity>
+                  <TouchableOpacity>
+                    <ClickAbleText linkText="Don't have an account?" />
+                  </TouchableOpacity>
+                </View>
+                <Button onPress={handleSubmit} mode={"contained"}>
+                  Submit
+                </Button>
+              </>
+            )}
+          </Formik>
+        </Background>
       </ScrollView>
     </>
   );

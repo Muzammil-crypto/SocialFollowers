@@ -3,11 +3,13 @@ import { theme } from "../utils/theme";
 
 export default StyleSheet.create({
   container: {
-    height: theme.dimensions.windowHeight,
-    width: theme.dimensions.windowWidth,
+    // marginTop: 100,
+
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
+    alignContent: "center",
+    alignSelf: "center",
     backgroundColor: theme.colors.backgroundColor,
   },
   loginContainer: {
@@ -15,27 +17,28 @@ export default StyleSheet.create({
     borderWidth: 1,
     borderColor: theme.colors.primary,
     // backgroundColor: theme.colors.secondary,
-    width: "85%",
-    height: "60%",
+    width: theme.dimensions.windowWidth / 1.15,
+
+    height: theme.dimensions.windowHeight,
     alignItems: "center",
     justifyContent: "center",
   },
   textInputs: {
-    paddingLeft: "2%",
+    paddingLeft: 10,
     height: 40,
-    width: "80%",
+    width: theme.dimensions.windowWidth * 0.85,
     margin: 10,
-    backgroundColor: "white",
-    borderColor: theme.colors.primary,
+    backgroundColor: theme.colors.backgroundColor,
+    borderColor: theme.colors.text,
     borderWidth: StyleSheet.hairlineWidth * 1.5,
-    borderRadius: 8,
+    borderRadius: 22,
   },
   clickAbleText: {
-    marginTop: theme.dimensions.windowHeight * 0.04,
+    marginTop: theme.dimensions.windowHeight * 0.02,
     fontSize: 10,
-    color: theme.colors.secondary,
-    marginLeft: 10,
-    marginRight: 10,
+    color: theme.colors.primary,
+    marginLeft: theme.dimensions.windowWidth * 0.15,
+    marginRight: theme.dimensions.windowWidth * 0.15,
     fontStyle: "italic",
   },
   button: {

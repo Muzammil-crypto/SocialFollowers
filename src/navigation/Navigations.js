@@ -13,10 +13,11 @@ export default function NavigationItems() {
         component={LoginScreen}
         options={() => ({
           title: "Social Followers",
+          headerShown: false,
           headerStyle: {
             backgroundColor: theme.colors.primary,
           },
-          headerTintColor: "white",
+          // headerTintColor: "white",
           headerTitleAlign: "center",
           headerLeft: () => null,
         })}
