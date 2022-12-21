@@ -15,7 +15,7 @@ export default function ThirdPartyButton({ title, icon }) {
         color={theme.colors.text}
         backgroundColor={theme.colors.backgroundColor}
         style={{
-          fontFamily: "Roboto",
+          // fontFamily: "Roboto",
           color: theme.colors.text,
           flexGrow: 1,
           width: "100%",
