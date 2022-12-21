@@ -1,6 +1,7 @@
 import { createStackNavigator } from "@react-navigation/stack";
 import LoginScreen from "../screens/LoginScreen";
 import RegisterScreen from "../screens/RegisterScreen";
+import RecoverAccount from "../screens/ResetPasswordScreen";
 import { theme } from "../utils/theme";
 
 const Stack = createStackNavigator();
@@ -26,13 +27,14 @@ export default function NavigationItems() {
         name="RegisterScreen"
         component={RegisterScreen}
         options={() => ({
-          title: "Social Followers",
-          headerStyle: {
-            backgroundColor: theme.colors.primary,
-          },
-          headerTintColor: "white",
-          headerTitleAlign: "center",
-          headerLeft: () => null,
+          headerShown: false,
+        })}
+      />
+      <Stack.Screen
+        name="RecoverAccount"
+        component={RecoverAccount}
+        options={() => ({
+          headerShown: false,
         })}
       />
     </Stack.Navigator>

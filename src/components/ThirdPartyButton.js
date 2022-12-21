@@ -14,7 +14,13 @@ export default function ThirdPartyButton({ title, icon }) {
         iconStyle={{ color: "red" }}
         color={theme.colors.text}
         backgroundColor={theme.colors.backgroundColor}
-        style={{ fontFamily: "Roboto", color: theme.colors.text }}
+        style={{
+          fontFamily: "Roboto",
+          color: theme.colors.text,
+          flexGrow: 1,
+          width: "100%",
+          height: "100%",
+        }}
         onPress={loginWithFacebook}
       >
         {title}

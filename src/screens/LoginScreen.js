@@ -28,7 +28,7 @@ const LoginScreen = ({ navigation }) => {
     <>
       <ScrollView>
         <Background>
-          <BackButton />
+          <BackButton goBack={navigation.goBack} />
           <StatusBar />
           <GalleryImagecomp address={require("../assets/images/mg.png")} />
           <Header>Login with your Email</Header>
@@ -46,33 +46,39 @@ const LoginScreen = ({ navigation }) => {
               handleSubmit,
             }) => (
               <>
-                <InputText
-                  name="email"
-                  placeholder="Email Address"
-                  style={styles.textInputs}
-                  onChangeText={handleChange("email")}
-                  onBlur={handleBlur("email")}
-                  value={values.email}
-                  keyboardType="email-address"
-                />
+                <View>
+                  <InputText
+                    name="email"
+                    placeholder="Email "
+                    style={styles.textInputs}
+                    onChangeText={handleChange("email")}
+                    onBlur={handleBlur("email")}
+                    value={values.email}
+                    keyboardType="email-address"
+                  />
 
-                {errors.email && <ErrorMsg value={errors.email} />}
-                <InputText
-                  name="password"
-                  placeholder="Password"
-                  style={styles.textInputs}
-                  onChangeText={handleChange("password")}
-                  onBlur={handleBlur("password")}
-                  value={values.password}
-                  secureTextEntry
-                />
-                {errors.password && <ErrorMsg value={errors.password} />}
-                <View style={{ flexDirection: "row" }}>
-                  <ClickAbleText linkText="Forgot Password?" />
+                  {errors.email && <ErrorMsg value={errors.email} />}
+                  <InputText
+                    name="password"
+                    placeholder="Password"
+                    style={styles.textInputs}
+                    onChangeText={handleChange("password")}
+                    onBlur={handleBlur("password")}
+                    value={values.password}
+                    secureTextEntry
+                  />
+                  {errors.password && <ErrorMsg value={errors.password} />}
+                  <View style={{ flexDirection: "row" }}>
+                    <ClickAbleText
+                      // navigate={navigation}
+                      route={"RecoverAccount"}
+                      linkText="Forgot Password?"
+                    />
+                  </View>
+                  <Button onPress={handleSubmit} mode={"contained"}>
+                    Login
+                  </Button>
                 </View>
-                <Button onPress={handleSubmit} mode={"contained"}>
-                  Submit
-                </Button>
               </>
             )}
           </Formik>
