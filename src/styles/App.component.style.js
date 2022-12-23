@@ -61,16 +61,12 @@ export default StyleSheet.create({
   title: {
     marginTop: "10%",
     textAlign: "right",
-    fontWeight: "bold",
-    fontSize: 15,
-    lineHeight: 26,
-    color: theme.colors.text,
   },
   image: {
     alignSelf: "center",
     height: theme.dimensions.windowHeight * 0.45,
     width: theme.dimensions.windowWidth * 0.8,
-    marginTop: "10%",
+    marginTop: "25%",
     borderRadius: 12,
     shadowColor: "#000",
     shadowOffset: { width: 0, height: 2 },

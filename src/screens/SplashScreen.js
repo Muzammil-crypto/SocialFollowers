@@ -1,8 +1,9 @@
 import React from "react";
 import { StyleSheet, View, Text, Image } from "react-native";
 import AppIntroSlider from "react-native-app-intro-slider";
-import Background from "../components/Background";
+import Button from "../components/Button";
 import styles from "../styles/App.component.style";
+import { theme } from "../utils/theme";
 
 const slides = [
   {
@@ -35,15 +36,9 @@ export default class Splash extends React.Component {
   };
   _renderItem = ({ item }) => {
     return (
-      //   <Background>
       <View style={styles.slide}>
-        <Text style={styles.title}>{item.title}</Text>
-
         <Image source={item.image} style={styles.image} />
-
-        <Text style={styles.text}>{item.text}</Text>
       </View>
-      //   </Background>
     );
   };
   _onDone = () => {
@@ -54,13 +49,42 @@ export default class Splash extends React.Component {
       return <Splash />;
     } else {
       return (
-        <AppIntroSlider
-          //   style={{ backgroundColor: "red" }}
-          scrollEnabled={false}
-          renderItem={this._renderItem}
-          data={slides}
-          onDone={this._onDone}
-        />
+        <>
+          <AppIntroSlider
+            //   style={{ backgroundColor: "red" }}
+            scrollEnabled={false}
+            renderItem={this._renderItem}
+            data={slides}
+            onDone={this._onDone}
+          />
+          <Button
+            style={{ marginVertical: 12, alignSelf: "center" }}
+            mode={"outlined"}
+          >
+            Sign up
+          </Button>
+          <Button
+            style={{
+              marginVertical: 12,
+              backgroundColor: theme.colors.block,
+              alignSelf: "center",
+            }}
+            mode={"contained"}
+          >
+            Log in
+          </Button>
+          <Button
+            style={{
+              marginVertical: 12,
+              alignSelf: "center",
+              marginBottom: "20%",
+              borderColor: theme.colors.block,
+            }}
+            mode={"outlined"}
+          >
+            Skip
+          </Button>
+        </>
       );
     }
   }
