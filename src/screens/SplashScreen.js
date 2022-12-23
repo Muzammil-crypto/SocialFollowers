@@ -51,7 +51,17 @@ export default class Splash extends React.Component {
       return (
         <>
           <AppIntroSlider
-            //   style={{ backgroundColor: "red" }}
+            activeDotStyle={{ backgroundColor: theme.colors.primary }}
+            // bottomButton={true}
+            // showPrevButton={true}
+            showSkipButton={true}
+            showDoneButton={true}
+            showNextButton={true}
+            dotStyle={{
+              backgroundColor: theme.colors.block,
+              borderColor: "black",
+              borderWidth: 0.5,
+            }}
             scrollEnabled={false}
             renderItem={this._renderItem}
             data={slides}
@@ -74,6 +84,7 @@ export default class Splash extends React.Component {
             Log in
           </Button>
           <Button
+            onPress={this._renderItem}
             style={{
               marginVertical: 12,
               alignSelf: "center",
