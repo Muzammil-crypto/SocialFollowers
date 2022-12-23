@@ -43,14 +43,9 @@ export default StyleSheet.create({
   },
 
   text: {
-    // backgroundColor: "#2FBAE3",
-    // borderRadius: 24,
-    // borderColor: "#2FBAE3",
-    // width: "80%",
     marginVertical: 5,
     fontSize: 20,
     color: theme.colors.text,
-    // height: 50,
   },
   slide: {
     // backgroundColor: "red",
@@ -64,14 +59,23 @@ export default StyleSheet.create({
     width: "100%",
   },
   title: {
+    marginTop: "10%",
+    textAlign: "right",
     fontWeight: "bold",
     fontSize: 15,
     lineHeight: 26,
-    color: "white",
+    color: theme.colors.text,
   },
   image: {
     alignSelf: "center",
-    height: 200,
-    width: 250,
+    height: theme.dimensions.windowHeight * 0.45,
+    width: theme.dimensions.windowWidth * 0.8,
+    marginTop: "10%",
+    borderRadius: 12,
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.8,
+    shadowRadius: 2,
+    elevation: 5,
   },
 });
