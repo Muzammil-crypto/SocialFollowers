@@ -49,6 +49,7 @@ export default StyleSheet.create({
   },
   slide: {
     borderRadius: 24,
+    // marginRight: 200,
     // backgroundColor: "#2FBAE3",
     marginVertical: 5,
     fontSize: 40,

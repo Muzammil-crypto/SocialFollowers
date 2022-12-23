@@ -1,29 +1,10 @@
 import React from "react";
 import { StyleSheet, View, Text, Image } from "react-native";
 import AppIntroSlider from "react-native-app-intro-slider";
-import BackButton from "../components/BackButton";
 import Button from "../components/Button";
 import styles from "../styles/App.component.style";
 import { theme } from "../utils/theme";
-import LoginScreen from "./LoginScreen";
-import RegisterScreen from "./RegisterScreen";
-
-const slides = [
-  {
-    key: 1,
-
-    image: require("../assets/images/slide1.png"),
-  },
-  {
-    key: 2,
-    image: require("../assets/images/slide2.png"),
-  },
-  {
-    key: 3,
-
-    image: require("../assets/images/slide3.png"),
-  },
-];
+import { slides } from "../components/Splash/SlideList";
 
 export default class Splash extends React.Component {
   state = {
@@ -121,6 +102,7 @@ export default class Splash extends React.Component {
             onPress={this._onDone}
             style={{
               marginBottom: "10%",
+              borderColor: "black",
 
               marginVertical: 12,
               alignSelf: "center",
