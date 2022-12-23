@@ -1,3 +1,4 @@
+import { TouchableOpacity, View, Text } from "react-native";
 import React from "react";
 import { Formik } from "formik";
 import Button from "../components/Button";
@@ -8,6 +9,7 @@ import ErrorMsg from "../components/ErrorMsg";
 import ClickAbleText from "../components/ClickAbleText";
 import loginValidationSchema from "../formik/schemas/formikSchema";
 import { ScrollView } from "react-native-gesture-handler";
+import { theme } from "../utils/theme";
 import { StatusBar } from "expo-status-bar";
 import Background from "../components/Background";
 import Header from "../components/Header";

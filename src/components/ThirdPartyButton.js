@@ -19,7 +19,7 @@ export default function ThirdPartyButton({ title, icon }) {
           color: theme.colors.text,
           flexGrow: 1,
           width: "100%",
-          height: "100%",
+          // height: "20%",
         }}
         onPress={loginWithFacebook}
       >
@@ -31,8 +31,9 @@ export default function ThirdPartyButton({ title, icon }) {
 
 const styles = StyleSheet.create({
   container: {
+    height: 45,
     borderColor: theme.colors.text,
-    width: "95%",
+    width: theme.dimensions.windowWidth * 0.85,
     borderWidth: StyleSheet.hairlineWidth,
     borderRadius: 22,
     margin: theme.dimensions.windowHeight * 0.015,

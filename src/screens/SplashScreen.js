@@ -1,32 +1,27 @@
 import React from "react";
 import { StyleSheet, View, Text, Image } from "react-native";
 import AppIntroSlider from "react-native-app-intro-slider";
+import BackButton from "../components/BackButton";
 import Button from "../components/Button";
 import styles from "../styles/App.component.style";
 import { theme } from "../utils/theme";
+import LoginScreen from "./LoginScreen";
+import RegisterScreen from "./RegisterScreen";
 
 const slides = [
   {
     key: 1,
 
-    title: "Title 1",
-    text: "Description.\nSay something cool",
     image: require("../assets/images/slide1.png"),
-    // backgroundColor: "#59b2ab",
   },
   {
     key: 2,
-    title: "Title 2",
-    text: "Other cool stuff",
     image: require("../assets/images/slide2.png"),
-    // backgroundColor: "#febe29",
   },
   {
     key: 3,
-    title: "Rocket guy",
-    text: "I'm already out of descriptions\n\nLorem ipsum bla bla bla",
+
     image: require("../assets/images/slide3.png"),
-    // backgroundColor: "#22bcb5",
   },
 ];
 
@@ -34,6 +29,45 @@ export default class Splash extends React.Component {
   state = {
     showRealApp: false,
   };
+  renderDoneButton = () => {
+    return (
+      <Button
+        style={{
+          marginVertical: 12,
+          justifyContent: "center",
+          alignItems: "center",
+          alignContent: "center",
+          alignSelf: "center",
+        }}
+        mode={"outlined"}
+      >
+        Done
+      </Button>
+    );
+  };
+
+  renderNextButton = () => {
+    return (
+      <Button
+        style={{
+          justifyContent: "center",
+          alignItems: "center",
+          alignContent: "center",
+          alignSelf: "center",
+          //   justifyContent: "center",
+          marginVertical: 12,
+          //   alignSelf: "center",
+        }}
+        mode={"outlined"}
+      >
+        Next
+      </Button>
+    );
+  };
+  _navigateSomewhere = () => {
+    this.props.navigation.navigate("LoginScreen");
+  };
+
   _renderItem = ({ item }) => {
     return (
       <View style={styles.slide}>
@@ -43,6 +77,7 @@ export default class Splash extends React.Component {
   };
   _onDone = () => {
     this.setState({ showRealApp: true });
+    // () => this._navigateSomewhere;
   };
   render() {
     if (this.state.showRealApp) {
@@ -51,16 +86,21 @@ export default class Splash extends React.Component {
       return (
         <>
           <AppIntroSlider
-            activeDotStyle={{ backgroundColor: theme.colors.primary }}
-            // bottomButton={true}
-            // showPrevButton={true}
-            showSkipButton={true}
-            showDoneButton={true}
+            contentContainerStyle={{
+              justifyContent: "center",
+              alignContent: "center",
+            }}
             showNextButton={true}
+            activeDotStyle={{
+              backgroundColor: theme.colors.primary,
+              marginBottom: theme.dimensions.windowHeight * 0.2,
+            }}
+            renderDoneButton={this.renderDoneButton}
+            renderNextButton={this.renderNextButton}
             dotStyle={{
               backgroundColor: theme.colors.block,
               borderColor: "black",
-              borderWidth: 0.5,
+              marginBottom: theme.dimensions.windowHeight * 0.2,
             }}
             scrollEnabled={false}
             renderItem={this._renderItem}
@@ -68,32 +108,26 @@ export default class Splash extends React.Component {
             onDone={this._onDone}
           />
           <Button
-            style={{ marginVertical: 12, alignSelf: "center" }}
-            mode={"outlined"}
+            style={{
+              marginVertical: 12,
+              alignSelf: "center",
+              backgroundColor: theme.colors.block,
+            }}
+            mode={"contained"}
           >
             Sign up
           </Button>
           <Button
+            onPress={this._onDone}
             style={{
-              marginVertical: 12,
-              backgroundColor: theme.colors.block,
-              alignSelf: "center",
-            }}
-            mode={"contained"}
-          >
-            Log in
-          </Button>
-          <Button
-            onPress={this._renderItem}
-            style={{
+              marginBottom: "10%",
+
               marginVertical: 12,
               alignSelf: "center",
-              marginBottom: "20%",
-              borderColor: theme.colors.block,
             }}
             mode={"outlined"}
           >
-            Skip
+            Log in
           </Button>
         </>
       );
